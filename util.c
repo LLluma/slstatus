@@ -144,3 +144,18 @@ pscanf(const char *path, const char *fmt, ...)
 
 	return (n == EOF) ? -1 : n;
 }
+
+char *
+perctobar(char *(*f)(), const char *fmt)
+{
+    char *res = "";
+    const char *perc = (*f)();
+	const char *bars[] = { "▁", "▂", "▃", "▄", "▅", "▆", "▇", "█" };
+	if (perc == NULL || atoi(perc)>100) {
+		sprintf(res, fmt, "X");
+	} else {
+		sprintf(res, fmt, (bars[(7 * atoi(perc)) / 100]));
+	}
+	return res;
+
+}
