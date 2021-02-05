@@ -63,7 +63,9 @@ static const char unknown_str[] = "n/a";
  */
 static const struct arg args[] = {
 	/* function format          argument */
-	{ cpu_perc, " | CPU: %s",    NULL },
+    { run_command, " | P: %s", "tail -n 1 ~/.config/.pomodoro" },
+    { run_command, " | T: %s", "task rc.verbose=nothing now | head -1" },
+	{ cpu_perc, " | CPU: %2s",    NULL },
 	{ ram_perc, " | MEM: %2s%%", NULL },
 	{ datetime, " | %s",         "%d %b %H:%M" },
 };
